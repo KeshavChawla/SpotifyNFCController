@@ -5,11 +5,12 @@ import { SpotifyAuth, Scopes } from 'react-spotify-auth'
 import 'react-spotify-auth/dist/index.css' // if using the included styles
 import Cookies from 'js-cookie'
 
+const nodeServerUrl = 'http://192.168.0.38:3031'
 
 async function updateFunction(token) {
   const response =
     await fetch(
-      `http://192.168.0.20:3031/tokenPost?token=${token}`,
+      `${nodeServerUrl}/tokenPost?token=${token}`,
       {
         method: 'POST',
       }
