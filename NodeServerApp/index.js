@@ -1,7 +1,7 @@
 const express = require('express')
 const https = require('https');
 const app = express();
-const port = 3000;
+const port = 3031;
 
 let tokenQuery;
 
@@ -121,14 +121,6 @@ app.post('/tokenPost', function (req, res) {
     console.log("Token updated");
     tokenQuery = req.query.token;
 });
-
-
-
-
-
-
-
-
 
 app.listen(port, () => {
     console.log(`Spotify Node Server App is now listening on port ${port}!`)

@@ -9,7 +9,7 @@ import Cookies from 'js-cookie'
 async function updateFunction(token) {
   const response =
     await fetch(
-      `http://192.168.0.20:3000/tokenPost?token=${token}`,
+      `http://192.168.0.20:3031/tokenPost?token=${token}`,
       {
         method: 'POST',
       }
