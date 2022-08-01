@@ -127,5 +127,18 @@ app.post('/tokenPost', function (req, res) {
 
 app.listen(port, () => {
     console.log(`Spotify Node Server App is now listening on port ${port}!`)
-    console.log(`Don't forget to start the React Auth App and login.`)
+    console.log("")
+    console.log('---------------------------------------------------')
+    console.log('| Here is a checklist of tasks/reminders:         |')
+    console.log('| 1. Start Spotify on your local device/speaker   |')
+    console.log('| 2. Run up the React Auth App and login          |')
+    console.log('| 3. Ensure the C++ NFC Reader is up and running  |')
+    console.log('| 4. Ensure the tags have the correct spotify URI |')
+    console.log('| 5. Ensure each service is on the correct port:  |')
+    console.log('|    5.1 Node Local Server: 3031                  |')
+    console.log('|    5.2 React Auth App: 3032                     |')
+    console.log('| 6. Ensure the correct callback urls are defined |')
+    console.log('|    in the Spotify Dashboard  (no ending slash)  |')
+    console.log('| 7. Verify correct client ID and secret creds    |')
+    console.log('---------------------------------------------------')
 });
