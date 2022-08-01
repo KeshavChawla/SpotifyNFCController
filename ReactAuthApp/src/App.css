@@ -1,0 +1,103 @@
+.App {
+  text-align: center;
+  background-color: black;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+body {
+  background-color: black;
+}
+
+.login-prompt {
+  background-color: black;
+  position: absolute;
+  top: 40%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  width: 100%;
+  /* height: 100vh; */
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.spotify-login-button {
+  border: 1px solid #1ed760;
+
+  border-radius: 100px;
+  background-color: transparent;
+  color: #1ed760;
+  height: 50px;
+  min-width: 200px;
+  display: flex;
+  margin-bottom: 20px;
+  cursor: pointer;
+  align-items: center;
+}
+
+svg {
+  fill: #1ed760 !important;
+}
+.login-button-wrapper {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+a {
+  color: #61dafb;
+}
+
+.login-confirmation {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.repo-details {
+  text-align: center;
+}
+
+.log-out-button {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  border-radius: 15px;
+  font-size: 14px;
+  padding: 5px;
+  cursor: pointer;
+}
