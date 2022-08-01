@@ -18,13 +18,14 @@ void readNFC(uint32_t pn532_error, PN532 pn532, uint8_t* buff) {
     printf("Reading blocks...\r\n");
     char valueToPrint[128] = "";
     bool isPrinting = false;
-    for (uint8_t block_number = 0; block_number < 135; block_number++) {
+    bool breakMainLoop = false;
+    for (uint8_t block_number = 6; block_number < 135; block_number++) {
         pn532_error = PN532_Ntag2xxReadBlock(&pn532, buff, block_number);
         if (pn532_error != PN532_ERROR_NONE) {
             break;
         }
 
-        // printf("%d: ", block_number);
+        printf("%d: ", block_number);
 
         for (uint8_t i = 0; i < 4; i++) {
             if (block_number == 6 && i == 1) {
@@ -32,6 +33,7 @@ void readNFC(uint32_t pn532_error, PN532 pn532, uint8_t* buff) {
             }
             if (isPrinting && buff[i] == 254) {
                 isPrinting = false;
+                breakMainLoop = true;
                 break;
             }
             if (isPrinting) {
@@ -43,6 +45,11 @@ void readNFC(uint32_t pn532_error, PN532 pn532, uint8_t* buff) {
             // printf("%02x ", buff[i]);
             // printf("%c ", buff[i]);
         }
+
+        if (breakMainLoop) {
+            break;
+        }
+
         // printf("\r\n");
     }
     printf("%s", valueToPrint);
@@ -70,9 +77,10 @@ int main(int argc, char** argv) {
     uint32_t pn532_error = PN532_ERROR_NONE;
     int32_t uid_len = 0;
     printf("Hello!\r\n");
+    cout << "NFC Reader App" << endl;
     PN532 pn532;
-    // PN532_SPI_Init(&pn532);
-    PN532_I2C_Init(&pn532);
+    PN532_SPI_Init(&pn532);
+    // PN532_I2C_Init(&pn532);
     // PN532_UART_Init(&pn532);
     if (PN532_GetFirmwareVersion(&pn532, buff) == PN532_STATUS_OK) {
         printf("Found PN532 with firmware version: %d.%d\r\n", buff[1],
@@ -98,10 +106,6 @@ int main(int argc, char** argv) {
                 // printf("%02x ", uid[i]);
             }
             // printf("\r\n");
-            // https://open.spotify.com/track/3rOSwuTsUlJp0Pu0MkN8r8?si=24525d328ebd4213
-            // 3rOSwuTsUlJp0Pu0MkN8r8
-
-            // https://open.spotify.com/track/60wwxj6Dd9NJlirf84wr2c?si=162ebc7cfdb946e2
             for (uint8_t i = 0; i < 7; i++) {
                 // printf("lastUID[i]: %i \n", lastUID[i]);
                 // printf("currentUID[i]: %i \n", currentUID[i]);

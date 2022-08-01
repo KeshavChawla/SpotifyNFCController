@@ -90,7 +90,8 @@ app.get('/', async (req, res) => {
                     }
                 })
             if (!albumTrackResponse.ok) {
-                throw new Error(`An error has occured: ${albumTrackResponse.status}`)
+                console.log((`An albumTrackResponse error has occured: ${albumTrackResponse.status}`))
+                // throw new Error(`An error has occured: ${albumTrackResponse.status}`)
             } else {
                 const albumDetails = await albumTrackResponse.json()
                 // add all the tracks in the album to the queue
@@ -108,8 +109,10 @@ app.get('/', async (req, res) => {
             // TRACK CASE
             const trackUriCodeParsed = trackUriCode.replace('track:', "");
             const response = await addTrackToQueue(trackUriCodeParsed);
-            if (!response.ok)
-                throw new Error(`An error has occured: ${response.status}`)
+            if (!response.ok) {
+                // throw new Error(`An error has occured: ${response.status}`)
+                console.log(`A response error has occured: ${response.status}`)
+            }
             else
                 skipTracks(trackUriCode);
         }
