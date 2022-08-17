@@ -12,7 +12,7 @@
 
 using namespace std;
 
-const string NODE_SERVER_URL = "http://192.168.0.22:3031";
+const string NODE_SERVER_URL = "http://192.168.0.37:3031";
 
 void readNFC(uint32_t pn532_error, PN532 pn532, uint8_t* buff) {
     printf("Reading blocks...\r\n");
