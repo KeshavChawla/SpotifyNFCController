@@ -98,11 +98,13 @@ app.get('/', async (req, res) => {
                 // note I think the limitation on this is set to 20 tracks
                 // as a future todo I will explore making this work with albums 
                 // which have 20+ tracks or multiple parts
-                albumDetails.items.forEach(track => {
-                    addTrackToQueue(track.id);
-                });
+                const trackToAdd = albumDetails.items[Math.floor(Math.random() * albumDetails.items.length)]
+                addTrackToQueue(trackToAdd.id)
+                // albumDetails.items.forEach(track => {
+                //     addTrackToQueue(track.id);
+                // });
                 // skip to the very first track of the album
-                skipTracks(albumDetails.items[0].id);
+                skipTracks(trackToAdd.id);
             }
 
         } else {
