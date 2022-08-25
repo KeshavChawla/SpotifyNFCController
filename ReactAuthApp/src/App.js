@@ -56,7 +56,7 @@ function App() {
           <div className='login-button-wrapper'>
             <SpotifyAuth
               btnClassName="spotify-login-button"
-              redirectUri='http://https://spotify-nfc-controller-keshav.vercel.app/callback'
+              redirectUri='https://spotify-nfc-controller-keshav.vercel.app/callback'
               clientID={process.env.REACT_APP_SPOTIFY_CLIENT_ID}
               scopes={[Scopes.userReadPrivate, 'user-read-email', Scopes.userModifyPlaybackState, Scopes.userReadCurrentlyPlaying]}
               onAccessToken={(token) => setToken(token)}
